@@ -1,0 +1,34 @@
+{
+  "name": "topdown-physics",
+  "version": "0.0.0",
+  "description": "Basic, grid-based, 2D top-down player physics for continuous ndarrays",
+  "main": "index.js",
+  "scripts": {
+    "start": "beefy demo.js:bundle.js",
+    "prepublish": "browserify demo.js -o bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hughsk/topdown-physics.git"
+  },
+  "author": "Hugh Kennedy <hughskennedy@gmail.com> (http://hughskennedy.com/)",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "vkey": "0.0.2",
+    "raf": "0.0.3",
+    "continuous-observer": "0.0.1",
+    "zeros": "0.0.0",
+    "aabb-2d": "0.0.0",
+    "ndarray-continuous": "~0.2.0",
+    "cave-automata-2d": "~0.3.0",
+    "beefy": "~0.4.0",
+    "browserify": "~2.25.0"
+  },
+  "keywords": [
+    "physics",
+    "topdown",
+    "game",
+    "continuous"
+  ]
+}
