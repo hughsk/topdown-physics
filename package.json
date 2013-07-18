@@ -1,6 +1,6 @@
 {
   "name": "topdown-physics",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Basic, grid-based, 2D top-down player physics for continuous ndarrays",
   "main": "index.js",
   "scripts": {
