@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "beefy demo.js:bundle.js",
+    "dev": "beefy demo.js:bundle.js --live -- -t installify",
     "prepublish": "browserify demo.js -o bundle.js"
   },
   "repository": {
@@ -17,18 +18,27 @@
   "devDependencies": {
     "vkey": "0.0.2",
     "raf": "0.0.3",
-    "continuous-observer": "0.0.1",
+    "ndarray-continuous": "~0.3.0",
+    "continuous-observer": "~0.1.0",
+    "continuous-storage": "0.0.0",
     "zeros": "0.0.0",
     "aabb-2d": "0.0.0",
-    "ndarray-continuous": "~0.2.0",
-    "cave-automata-2d": "~0.3.0",
+    "pointer-trap": "0.0.0",
+    "cave-automata-2d": "~0.3.1",
     "beefy": "~0.4.0",
-    "browserify": "~2.25.0"
+    "browserify": "~2.25.0",
+    "installify": "0.0.0",
+    "level-js": "~1.0.7",
+    "levelup": "~0.11.0",
+    "debounce": "0.0.2"
   },
   "keywords": [
     "physics",
     "topdown",
     "game",
     "continuous"
-  ]
+  ],
+  "dependencies": {
+    "inherits": "~2.0.0"
+  }
 }

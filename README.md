@@ -43,3 +43,7 @@ Steps forward the simulation by one tick - this should be called each frame.
 
 An array you're free to modify directly. The first value is the horizontal
 speed (in cells per tick), and the second is the vertical speed.
+
+### `physics.on('collision', callback)` ###
+
+Emitted when a collision is made during a tick.

@@ -1,4 +1,6 @@
-var floor = Math.floor
+var EventEmitter = require('events').EventEmitter
+  , inherits = require('inherits')
+  , floor = Math.floor
   , abs = Math.abs
   , min = Math.min
 
@@ -11,6 +13,7 @@ function Topdown(player, field, options) {
   if (!field) throw new Error('You must pass a continuous ndarray as the second argument')
   options = options || {}
 
+  EventEmitter.call(this)
   this.player = player
 
   this.min = player.base
@@ -18,12 +21,15 @@ function Topdown(player, field, options) {
   this.spd = [0, 0]
 
   this.field = field
-  this.friction = 1 - (options.friction || 0.1)
   this.interval = options.interval || (1 / 32)
+  this.friction = 'friction' in options
+    ? 1 - options.friction
+    : 0.9
   this.physical = options.physical
     ? functor(options.physical)
     : identity
 }
+inherits(Topdown, EventEmitter)
 
 var tempSpeed = []
 var tempPos = [0,0]
@@ -60,18 +66,18 @@ Topdown.prototype.tick = function() {
 
     // left/right
     if (this.spd[0] < 0) {
-      if (tl || bl) tempPos[0] -= xoff
+      if (tl || bl) tempPos[0] -= xoff, collision = true
     } else
     if (this.spd[0] > 0) {
-      if (tr || br) tempPos[0] -= xoff
+      if (tr || br) tempPos[0] -= xoff, collision = true
     }
 
     // up/down
     if (this.spd[1] < 0) {
-      if (tr || tl) tempPos[1] -= yoff
+      if (tr || tl) tempPos[1] -= yoff, collision = true
     } else
     if (this.spd[1] > 0) {
-      if (br || bl) tempPos[1] -= yoff
+      if (br || bl) tempPos[1] -= yoff, collision = true
     }
   }
 
@@ -80,6 +86,8 @@ Topdown.prototype.tick = function() {
   this.spd[0] *= friction
   this.spd[1] *= friction
   this.player.translate(tempPos)
+
+  if (collision) this.emit('collision')
 }
 
 function functor(fn) {

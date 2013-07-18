@@ -23,11 +23,25 @@
         text-decoration: none;
         border-bottom: 1px solid #85CAE8;
       }
+
+      p {
+        margin-top: 0;
+      }
     </style>
   </head>
   <body>
     <div id="instructions">
-      Use the arrow keys or WASD to move around.
+      <p>
+        Use the arrow keys or WASD to move around,
+        left click to destroy blocks and
+        right click to create them.
+      </p>
+      <p>
+        The world is persistent:
+        refreshing will take you back to the center,
+        but your changes are stored locally using
+        <a href="http://github.com/maxogden/level.js">level.js</a>.
+      </p>
       Source available on <a href="http://github.com/hughsk/topdown-physics">Github</a>.
     </div>
     <script type="text/javascript" src="bundle.js"></script>
