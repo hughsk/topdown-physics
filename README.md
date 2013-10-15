@@ -19,7 +19,7 @@ npm install topdown-physics
 
 ## Usage ##
 
-### `physics = require('topdown-physics)(player, field[, options])` ###
+### `physics = require('topdown-physics')(player, field[, options])` ###
 
 `player` is an axis-aligned bounding box - use
 [`aabb-2d`](http://npmjs.org/package/aabb-2d) for this. `field` is a
